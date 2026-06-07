@@ -342,9 +342,10 @@ export default function StorySubmitForm({ onStoryAdded, onCancel }: StorySubmitF
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[9px] font-mono font-medium text-white/40 uppercase tracking-[0.16em] mb-1.5">Company Name (Optional)</label>
+                  <label className="block text-[9px] font-mono font-medium text-white/40 uppercase tracking-[0.16em] mb-1.5">Company Name *</label>
                   <input
                     type="text"
+                    required
                     placeholder="e.g., MegaCorp, SwiftTransit"
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
@@ -352,8 +353,9 @@ export default function StorySubmitForm({ onStoryAdded, onCancel }: StorySubmitF
                   />
                 </div>
                 <div>
-                  <label className="block text-[9px] font-mono font-medium text-white/40 uppercase tracking-[0.16em] mb-1.5">Issue Source / Origin</label>
+                  <label className="block text-[9px] font-mono font-medium text-white/40 uppercase tracking-[0.16em] mb-1.5">Issue Source / Origin *</label>
                   <select
+                    required
                     value={issueOrigin || ''}
                     onChange={(e) => setIssueOrigin(e.target.value as any)}
                     className="w-full rounded-sm border border-white/10 bg-[#0f0f0f] text-white p-2.5 text-xs outline-none focus:border-white/20 transition-all appearance-none"
@@ -385,9 +387,9 @@ export default function StorySubmitForm({ onStoryAdded, onCancel }: StorySubmitF
                 <div className="mt-2.5 text-[10px] text-white/45 bg-white/[0.01]/70 p-4 rounded-sm border border-white/5 space-y-1.5 font-mono">
                   <p className="font-semibold text-white/70 uppercase tracking-widest text-[9px]">Recommended Guidance Prompts:</p>
                   <ul className="list-disc pl-4 space-y-1 text-white/50 leading-relaxed font-light">
-                    <li>What was the name or type of the workplace AI software?</li>
-                    <li>How did it constrain, judge, pressure, or fire you?</li>
-                    <li>What crucial human elements did the algorithm discount or fail to recognize?</li>
+                    <li>Who used the algorithm or software as an excuse to pressure, mob, or bully you?</li>
+                    <li>How did management or your team use the system to avoid accountability?</li>
+                    <li>What was the emotional and psychological toll of being targeted through a machine?</li>
                   </ul>
                 </div>
               </div>

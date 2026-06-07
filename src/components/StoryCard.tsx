@@ -74,13 +74,26 @@ export default function StoryCard({ story, onUpvote }: StoryCardProps) {
       <div className="border-t border-white/5 pt-4 bg-white/[0.01]/40 p-4 rounded-sm space-y-3">
         <div className="flex items-center space-x-2 text-[10px] font-mono font-medium text-white/40 uppercase tracking-[0.18em]">
           <Layers className="h-3.5 w-3.5 text-white/30" />
-          <span>Systemic Surveillance Review</span>
+          <span>AI Human-Centric Analysis</span>
         </div>
+
+        {/* Issue Origin */}
+        {story.issueOrigin && (
+          <div>
+            <span className="text-[9px] font-mono text-white/30 block mb-1 uppercase tracking-wider">Source of Pressure:</span>
+            <span className="bg-rose-950/20 text-[9px] font-mono border border-rose-900/30 px-2 py-0.5 rounded-sm text-rose-400 uppercase tracking-widest">
+              {story.issueOrigin === 'mobbing' ? 'Mobbing (Teammates/Peers)' : 
+               story.issueOrigin === 'company-discrimination' ? 'Company Policy / Discrimination' : 
+               story.issueOrigin === 'manager' ? 'Direct Manager' : 
+               story.issueOrigin === 'teammates' ? 'Teammates / Peers' : story.issueOrigin}
+            </span>
+          </div>
+        )}
 
         {/* Patterns */}
         {story.extractedPatterns?.length > 0 && (
           <div>
-            <span className="text-[9px] font-mono text-white/30 block mb-1 uppercase tracking-wider">Surveillance Infractions:</span>
+            <span className="text-[9px] font-mono text-white/30 block mb-1 uppercase tracking-wider">Tactics Used:</span>
             <div className="flex flex-wrap gap-1.5">
               {story.extractedPatterns.map((pt, idx) => (
                 <span key={idx} className="bg-amber-950/15 text-[9px] font-mono border border-amber-900/25 px-2 py-0.5 rounded-sm text-amber-400 uppercase tracking-widest">
@@ -91,12 +104,20 @@ export default function StoryCard({ story, onUpvote }: StoryCardProps) {
           </div>
         )}
 
-        {/* Systemic Takeaway Analysis */}
-        <div>
-          <span className="text-[9px] font-mono text-white/30 block mb-1 uppercase tracking-wider">Labor Systemic Critique:</span>
-          <p className="text-xs font-serif text-white/80 leading-relaxed italic">
-            "{story.systemicTakeaway}"
-          </p>
+        {/* Human Impact & Management Excuse */}
+        <div className="space-y-2 mt-3">
+          <div>
+            <span className="text-[9px] font-mono text-white/30 block mb-0.5 uppercase tracking-wider">Human Toll:</span>
+            <p className="text-xs font-serif text-white/80 leading-relaxed italic">
+              "{story.humanImpact}"
+            </p>
+          </div>
+          <div>
+            <span className="text-[9px] font-mono text-white/30 block mb-0.5 uppercase tracking-wider">Management's Excuse:</span>
+            <p className="text-xs font-sans text-white/60 leading-relaxed">
+              {story.managementExcuse}
+            </p>
+          </div>
         </div>
 
         {/* Support Message */}

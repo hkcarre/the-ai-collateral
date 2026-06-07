@@ -31,10 +31,11 @@ export default function InsightsDashboard({ stories, onSelectCategoryFilter, onS
   });
 
   const categories = [
-    { id: 'Automated Performance Pressure', label: 'Surveillance & Performance Pressure', color: 'bg-neutral-300' },
-    { id: 'Unfair Redundancy & Automation Layoffs', label: 'Automation Layoffs & Redundancies', color: 'bg-[#df4b30]' },
-    { id: 'Discriminatory Hiring Bias', label: 'Screening & Hiring Bias', color: 'bg-amber-500/80' },
-    { id: 'Loss of Dignity & Automated Mobbing', label: 'Deplatforming & Gig Mobbing', color: 'bg-zinc-500' },
+    { id: 'Managerial Gaslighting', label: 'Managerial Gaslighting', color: 'bg-[#df4b30]' },
+    { id: 'Teammate Mobbing & Isolation', label: 'Teammate Mobbing & Isolation', color: 'bg-amber-500/80' },
+    { id: 'Systemic Corporate Retaliation', label: 'Systemic Corporate Retaliation', color: 'bg-neutral-300' },
+    { id: 'Discrimination via Algorithms', label: 'Discrimination via Algorithms', color: 'bg-zinc-500' },
+    { id: 'AI-Enabled Workplace Bullying', label: 'AI-Enabled Workplace Bullying', color: 'bg-indigo-500' },
   ];
 
   // Pattern cloud compilation
@@ -74,7 +75,8 @@ export default function InsightsDashboard({ stories, onSelectCategoryFilter, onS
       assignedCategory: s.category,
       aiInfractionPatterns: s.extractedPatterns,
       severityIndex: s.severityIndex,
-      systemicTakeaway: s.systemicTakeaway,
+      humanImpact: s.humanImpact,
+      managementExcuse: s.managementExcuse,
       evidenceSubmissionDate: s.dateSubmitted,
     }));
 
@@ -111,7 +113,8 @@ export default function InsightsDashboard({ stories, onSelectCategoryFilter, onS
       mdContent += `- **Filer / Industry**: ${s.alias} | ${s.industry || 'Undocumented'}\n`;
       mdContent += `- **Livelihood Severity Index**: ${s.severityIndex}/5\n`;
       mdContent += `- **Ascribed Tech Infractions**: ${s.extractedPatterns?.join(', ') || 'N/A'}\n\n`;
-      mdContent += `### Systemic Critique Analysis:\n> "${s.systemicTakeaway}"\n\n`;
+      mdContent += `### Human Toll:\n> "${s.humanImpact}"\n\n`;
+      mdContent += `### Management Excuse:\n> "${s.managementExcuse}"\n\n`;
       mdContent += `### Anonymized Witness Testimony:\n${s.anonymizedText}\n\n`;
       mdContent += `---\n\n`;
     });
@@ -215,9 +218,11 @@ export default function InsightsDashboard({ stories, onSelectCategoryFilter, onS
       {/* Company Accountability Scores Section */}
       <div className="bg-white/[0.01] rounded-sm border border-white/5 p-6 shadow-md space-y-6">
         <div>
-          <h3 className="text-lg font-light text-white">Company Accountability Scores</h3>
+          <h3 className="text-xl font-light text-white flex items-center gap-2">
+            Company Accountability Leaderboard
+          </h3>
           <p className="text-xs text-white/40 mt-1 font-light leading-relaxed">
-            Aggregate severity metrics and total incident volume attributed to specific organizations.
+            Ranking companies by total incidents of human-to-human mobbing and algorithmic abuse, ordered by severity.
           </p>
         </div>
 

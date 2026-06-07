@@ -22,12 +22,12 @@ export default function Manifesto({
   
   // Quick pre-packaged keywords user can click to run quick searches
   const suggestedQueries = [
-    'bossware',
-    'algorithm',
-    'deactivation',
-    'PIP tracking',
-    'gig economy',
-    'hiring bias'
+    'gaslighting',
+    'mobbing',
+    'medical discrimination',
+    'manager abuse',
+    'retaliation',
+    'union busting'
   ];
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -50,7 +50,7 @@ export default function Manifesto({
             The AI Collateral
           </h2>
           <p className="text-[10px] font-mono tracking-[0.25em] text-white/30 uppercase max-w-md mx-auto">
-            Witness Archive for Workplace Algorithmic Harm
+            A Safe Ledger for Victims of Workplace Mobbing, Bullying & Managerial Abuse
           </p>
         </div>
 

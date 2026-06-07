@@ -21,7 +21,8 @@ export interface Story {
   isModerated: boolean;
   safetyStatus: 'approved' | 'needs-review' | 'flagged';
   summary: string;
-  systemicTakeaway: string;
+  humanImpact: string;
+  managementExcuse: string;
   severityIndex: number;
   extractedPatterns: string[];
   supportResponse: string;
@@ -36,7 +37,8 @@ export interface ModerationResult {
   severityIndex: number;
   extractedPatterns: string[];
   summary: string;
-  systemicTakeaway: string;
+  humanImpact: string;
+  managementExcuse: string;
   supportResponse: string;
 }
 
