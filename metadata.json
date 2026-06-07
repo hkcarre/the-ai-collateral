@@ -1,0 +1,6 @@
+{
+  "name": "The AI Collateral",
+  "description": "A trusted, empathetic archive and accountability space for documenting real-world human cost and AI-driven harm in the workplace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
