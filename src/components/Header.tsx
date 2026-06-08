@@ -1,13 +1,8 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { ShieldCheck, Activity, BrainCircuit } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'feed' | 'submit' | 'insights' | 'safety';
-  setActiveTab: (tab: 'feed' | 'submit' | 'insights' | 'safety') => void;
+  activeTab: 'submit' | 'dashboard';
+  setActiveTab: (tab: 'submit' | 'dashboard') => void;
   storyCount: number;
   patternCount: number;
 }
@@ -18,7 +13,7 @@ export default function Header({ activeTab, setActiveTab, storyCount, patternCou
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo Brand Title */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('feed')}>
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('submit')}>
             <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-white text-black">
               <ShieldCheck className="h-4.5 w-4.5" />
             </div>
@@ -35,16 +30,6 @@ export default function Header({ activeTab, setActiveTab, storyCount, patternCou
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center space-x-8 text-[11px] uppercase tracking-[0.2em] font-medium text-white/50">
             <button
-              onClick={() => setActiveTab('feed')}
-              className={`py-1 transition-colors cursor-pointer ${
-                activeTab === 'feed'
-                  ? 'text-white border-b border-white/40'
-                  : 'hover:text-white'
-              }`}
-            >
-              The Archive
-            </button>
-            <button
               onClick={() => setActiveTab('submit')}
               className={`py-1 transition-colors cursor-pointer ${
                 activeTab === 'submit'
@@ -55,24 +40,14 @@ export default function Header({ activeTab, setActiveTab, storyCount, patternCou
               Share Testimony
             </button>
             <button
-              onClick={() => setActiveTab('insights')}
+              onClick={() => setActiveTab('dashboard')}
               className={`py-1 transition-colors cursor-pointer ${
-                activeTab === 'insights'
+                activeTab === 'dashboard'
                   ? 'text-white border-b border-white/40'
                   : 'hover:text-white'
               }`}
             >
-              Pattern Lab
-            </button>
-            <button
-              onClick={() => setActiveTab('safety')}
-              className={`py-1 transition-colors cursor-pointer ${
-                activeTab === 'safety'
-                  ? 'text-white border-b border-white/40'
-                  : 'hover:text-white'
-              }`}
-            >
-              Safety Hub
+              Leaderboard & Feed
             </button>
           </nav>
 
@@ -94,14 +69,6 @@ export default function Header({ activeTab, setActiveTab, storyCount, patternCou
           <div className="flex justify-around text-[10px] uppercase tracking-[0.15em] font-medium">
             <button
               className={`py-1 px-2.5 rounded-sm ${
-                activeTab === 'feed' ? 'bg-white text-black' : 'text-white/50 hover:text-white'
-              }`}
-              onClick={() => setActiveTab('feed')}
-            >
-              Archive
-            </button>
-            <button
-              className={`py-1 px-2.5 rounded-sm ${
                 activeTab === 'submit' ? 'bg-white text-black' : 'text-white/50 hover:text-white'
               }`}
               onClick={() => setActiveTab('submit')}
@@ -110,19 +77,11 @@ export default function Header({ activeTab, setActiveTab, storyCount, patternCou
             </button>
             <button
               className={`py-1 px-2.5 rounded-sm ${
-                activeTab === 'insights' ? 'bg-white text-black' : 'text-white/50 hover:text-white'
+                activeTab === 'dashboard' ? 'bg-white text-black' : 'text-white/50 hover:text-white'
               }`}
-              onClick={() => setActiveTab('insights')}
+              onClick={() => setActiveTab('dashboard')}
             >
-              Insights
-            </button>
-            <button
-              className={`py-1 px-2.5 rounded-sm ${
-                activeTab === 'safety' ? 'bg-white text-black' : 'text-white/50 hover:text-white'
-              }`}
-              onClick={() => setActiveTab('safety')}
-            >
-              Safety
+              Dashboard
             </button>
           </div>
         </div>
