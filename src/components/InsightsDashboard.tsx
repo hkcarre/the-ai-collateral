@@ -219,11 +219,16 @@ export default function InsightsDashboard({ stories, onSelectCategoryFilter, onS
       <div className="bg-white/[0.01] rounded-sm border border-white/5 p-6 shadow-md space-y-6">
         <div>
           <h3 className="text-xl font-light text-white flex items-center gap-2">
-            Company Accountability Leaderboard
+            Dummy Company Accountability Leaderboard
           </h3>
           <p className="text-xs text-white/40 mt-1 font-light leading-relaxed">
             Ranking companies by total incidents of human-to-human mobbing and algorithmic abuse, ordered by severity.
           </p>
+        </div>
+        
+        {/* LEGAL CAVEAT */}
+        <div className="bg-amber-950/20 border border-amber-900/30 p-3 rounded-sm text-[10px] text-amber-400/80 font-mono leading-relaxed">
+          <strong>LEGAL DISCLAIMER:</strong> This leaderboard is algorithmically generated from unverified, anonymous third-party submissions. The data represents subjective user allegations of workplace experiences and does not constitute proven legal facts or the official opinions of this platform. It currently operates with test/dummy data until verification processes are fully deployed.
         </div>
 
         {companyScores.length > 0 ? (

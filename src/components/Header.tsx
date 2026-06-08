@@ -37,7 +37,7 @@ export default function Header({ activeTab, setActiveTab, storyCount, patternCou
                   : 'hover:text-white'
               }`}
             >
-              Share Testimony
+              Share Evidence
             </button>
             <button
               onClick={() => setActiveTab('dashboard')}

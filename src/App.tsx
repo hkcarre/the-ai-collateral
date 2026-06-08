@@ -153,97 +153,15 @@ export default function App() {
               }}
             />
 
-            {/* 2. The Actual Feed of Stories */}
-            <div id="archive-feed" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12 space-y-8">
-              <div className="p-4 bg-white/[0.01] border border-white/5 rounded-sm space-y-4">
-                <div className="relative">
-                  <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/30" />
-                  <input
-                    type="text"
-                    placeholder="Search testimonies by keywords..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 text-xs bg-[#0f0f0f] border border-white/10 text-white placeholder-white/20 focus:border-white/25 rounded-sm outline-none transition"
-                  />
-                </div>
-
-                <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-mono text-[9px] text-white/35 uppercase tracking-[0.2em] font-medium mr-1">Categories:</span>
-                    <button
-                      onClick={() => setSelectedCategory(null)}
-                      className={`px-3 py-1 rounded-sm text-[10px] uppercase font-mono tracking-wider transition cursor-pointer ${
-                        selectedCategory === null 
-                          ? 'bg-white text-black font-semibold' 
-                          : 'bg-white/5 text-white/60 border border-white/5 hover:bg-white/10'
-                      }`}
-                    >
-                      All
-                    </button>
-                    <button
-                      onClick={() => setSelectedCategory('Managerial Gaslighting')}
-                      className={`px-3 py-1 rounded-sm text-[10px] uppercase font-mono tracking-wider transition cursor-pointer ${
-                        selectedCategory === 'Managerial Gaslighting' 
-                          ? 'bg-white text-black font-semibold' 
-                          : 'bg-white/5 text-white/60 border border-white/5 hover:bg-white/10'
-                      }`}
-                    >
-                      Managerial Gaslighting
-                    </button>
-                    <button
-                      onClick={() => setSelectedCategory('Teammate Mobbing & Isolation')}
-                      className={`px-3 py-1 rounded-sm text-[10px] uppercase font-mono tracking-wider transition cursor-pointer ${
-                        selectedCategory === 'Teammate Mobbing & Isolation' 
-                          ? 'bg-white text-black font-semibold' 
-                          : 'bg-white/5 text-white/60 border border-white/5 hover:bg-white/10'
-                      }`}
-                    >
-                      Teammate Mobbing
-                    </button>
-                  </div>
-
-                  {(searchQuery || selectedCategory || selectedTag) && (
-                    <button
-                      onClick={handleClearFilters}
-                      className="text-white/40 hover:text-white flex items-center space-x-1 cursor-pointer font-medium font-mono text-[10px] uppercase tracking-wider"
-                    >
-                      <RotateCcw className="h-3 w-3" />
-                      <span>Reset</span>
-                    </button>
-                  )}
-                </div>
-
-                {selectedTag && (
-                  <div className="bg-amber-950/25 border border-amber-900/35 rounded-sm px-3 py-1.5 text-xs text-amber-400 flex items-center justify-between font-mono">
-                    <span>Active Pattern Filtering Profile: <strong>#{selectedTag}</strong></span>
-                    <button onClick={() => setSelectedTag(null)} className="text-amber-500 hover:text-amber-300 underline cursor-pointer">Clear Tag Filter</button>
-                  </div>
-                )}
+            {/* The Actual Feed of Stories is removed as requested - data is kept for internal verification only */}
+            <div id="archive-feed" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+              <div className="p-12 text-center rounded-sm border border-dashed border-white/10 bg-white/[0.01] space-y-4">
+                <ShieldAlert className="h-10 w-10 text-emerald-500/50 mx-auto" />
+                <p className="font-sans font-light text-lg text-white">Public Feed Disabled for Safety</p>
+                <p className="text-xs text-white/40 max-w-md mx-auto leading-relaxed">
+                  To protect our contributors, individual evidence submissions are not displayed publicly. All data is securely routed to our team for internal verification, validation, and inclusion in the aggregated structural metrics above.
+                </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredStories.map((story) => (
-                  <StoryCard 
-                    key={story.id} 
-                    story={story} 
-                    onUpvote={handleUpvote} 
-                  />
-                ))}
-              </div>
-
-              {filteredStories.length === 0 && (
-                <div className="p-12 text-center rounded-sm border border-dashed border-white/10 bg-white/[0.01] space-y-4 animate-fadeIn">
-                  <ShieldAlert className="h-10 w-10 text-white/30 mx-auto" />
-                  <p className="font-sans font-light text-lg text-white">No matching testimonies audited.</p>
-                  <button
-                    onClick={handleClearFilters}
-                    className="border border-white/10 rounded-sm px-4.5 py-2 text-[10px] uppercase font-mono tracking-wider text-white hover:bg-white/5 inline-flex items-center space-x-1 cursor-pointer"
-                  >
-                    <RotateCcw className="h-3.5 w-3.5" />
-                    <span>Reset Ledger Search</span>
-                  </button>
-                </div>
-              )}
             </div>
           </div>
         )}
